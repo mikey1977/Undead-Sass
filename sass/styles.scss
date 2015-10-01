@@ -1,0 +1,94 @@
+//import resets and clearfix
+
+@import "partials/reset";
+@import "partials/clearfix";
+
+//set variables
+$lightblue-color : #2A8F98;
+$background-color : #EBF9E7;
+$backgroundtext-color : #45B6B5;
+$readmore-color : #14273D;
+$readmoretext-color : #57C1C7;
+$text-color : black;
+$padding : 20px;
+
+//set media query ranges
+$medium: "only screen and (mix-width:640px) and (max-width:960px)";
+$large: "only screen and (min-width:961px)";
+
+//mixins
+
+
+
+body {
+  background-color: $background-color;
+  text-align: center;
+  color: $text-color;
+  box-sizing: border-box;
+    font-size: 16px;
+}
+
+.row h1{
+  font-family: "Droid Serif", serif;
+  font-size: 0.7em;
+  color: $backgroundtext-color;
+  float: top;
+  display: block;
+  padding-top: 10px;
+  background-color: $lightblue-color;
+  height: 20px;
+}
+
+.nav {
+  display: none;
+}
+
+article {
+  float: left;
+  padding-top: $padding;
+  padding-left: $padding;
+  display: block;
+  text-align: left;
+}
+
+h2 a {
+  // float: left;
+  font-size: 30px;
+  padding-top: $padding;
+  color: $text-color;
+  text-decoration: none;
+  border-bottom: 1px dashed $lightblue-color;
+}
+
+h3 {
+  color: $lightblue-color;
+  padding-top: 5px;
+}
+
+h3 a {
+  // float: left;
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px dashed $lightblue-color;
+  // display: inline;
+}
+
+
+aside {
+  display: none;
+
+}
+
+.left {
+  display: none;
+}
+
+p {
+  padding-top: $padding;
+  line-height: 200%
+}
+
+.footer_links {
+  padding-top: 60px;
+  display: block;
+}
