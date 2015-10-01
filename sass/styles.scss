@@ -13,6 +13,7 @@ $text-color : black;
 $padding : 20px;
 
 //set media query ranges
+$small: "only screen and (max-width:639px)";
 $medium: "only screen and (mix-width:640px) and (max-width:960px)";
 $large: "only screen and (min-width:961px)";
 
@@ -24,24 +25,63 @@ body {
   background-color: $background-color;
   text-align: center;
   color: $text-color;
+  font-family: "Droid Serif", serif;
   box-sizing: border-box;
     font-size: 16px;
 }
 
 .row h1{
+
+  @media #{$small}{
   font-family: "Droid Serif", serif;
-  font-size: 0.7em;
+  font-size: 12px;
   color: $backgroundtext-color;
   float: top;
   display: block;
   padding-top: 10px;
   background-color: $lightblue-color;
   height: 20px;
+  }
+
+    @media #{$medium}{
+    font-size: 15px;
+    background-color: $background-color;
+    padding-top: 0px;
+
+    }
+
 }
 
 .nav {
+  padding-top: $padding;
+  // border-bottom: 1px solid $lightblue-color;
+
+
+  @media #{$small}{
   display: none;
+  }
+
+  @media #{$medium}{
+    display: show;
+  }
 }
+
+.nav li{
+  @media #{$medium}{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline;
+    color: black;
+  }
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  border-bottom: none;
+}
+
+
 
 article {
   float: left;
@@ -75,20 +115,53 @@ h3 a {
 
 
 aside {
-  display: none;
+  @media #{$small}{
+   display: none;
+  }
 
+  @media #{$medium}{
+    display: block;
+    float: left;
+
+    h4 {
+      color: $lightblue-color;
+    }
+  }
 }
 
 .left {
   display: none;
 }
 
-p {
-  padding-top: $padding;
-  line-height: 200%
+
+article p {
+  @media #{$small}{
+    padding-top: $padding;
+    line-height: 30px;
+  }
+
+  @media #{$medium}{
+    padding-top: $padding;
+    line-height: 30px;
+  }
 }
 
 .footer_links {
-  padding-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid $lightblue-color;
+}
+
+.footer_links li{
+  // padding-top: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: inline;
+  color: black;
+}
+
+.read_more {
+  @media #{$medium}{
   display: block;
+  max-width: 100%;
+  }
 }
