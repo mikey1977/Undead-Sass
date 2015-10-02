@@ -19,7 +19,14 @@ $large: "only screen and (min-width:961px)";
 
 //mixins
 
-
+.whole {
+  @media #{$large}{
+    max-width: 800px;
+    margin: auto;
+    margin-top: 40px;
+    background-color: $background-color;
+  }
+}
 
 body {
   background-color: $background-color;
@@ -27,53 +34,80 @@ body {
   color: $text-color;
   font-family: "Droid Serif", serif;
   box-sizing: border-box;
-    font-size: 16px;
+  font-size: 16px;
+
+  @media #{$large}{
+    background-color: $lightblue-color;
+  }
 }
 
-.row h1{
+div h1 {
+  font-family: "Droid Serif", serif;
+  color: $backgroundtext-color;
+  display: block;
+  margin-bottom: $padding;
+  padding-top: $padding;
+  height: 40px;
+  border-top: 1px solid $lightblue-color;
+  border-bottom: 1px solid $lightblue-color;
 
   @media #{$small}{
-  font-family: "Droid Serif", serif;
-  font-size: 12px;
-  color: $backgroundtext-color;
-  float: top;
-  display: block;
-  padding-top: 10px;
-  background-color: $lightblue-color;
-  height: 20px;
+    height: 20px;
+    margin-bottom: 0;
+    padding-top: 5px;
+    font-size: 12px;
+    background-color: $lightblue-color;
   }
 
-    @media #{$medium}{
-    font-size: 15px;
+  @media #{$medium}{
+    height: 40px;
+    margin-bottom: $padding;
+    padding-top: $padding;
+    font-size: 40px;
     background-color: $background-color;
-    padding-top: 0px;
+    text-decoration: none;
+    border-bottom: 1px solid $lightblue-color;
+    border-top: 1px solid $lightblue-color;
+  }
 
-    }
-
+  @media #{$large}{
+    background-color: $background-color;
+  }
 }
+
+
 
 .nav {
   padding-top: $padding;
-  // border-bottom: 1px solid $lightblue-color;
-
+  padding-bottom: $padding;
+  border-top: 1px solid $lightblue-color;
 
   @media #{$small}{
-  display: none;
+    padding: 0px;
+  }
+
+  @media #{$large}{
+    background-color: $background-color;
+  }
+}
+
+
+.nav li{
+  padding: $padding;
+  display: inline;
+
+  @media #{$small}{
+    display: none;
   }
 
   @media #{$medium}{
     display: show;
+    margin: 20px;
+    padding-left: $padding;
+    padding-right: $padding;
   }
 }
 
-.nav li{
-  @media #{$medium}{
-    padding-left: 10px;
-    padding-right: 10px;
-    display: inline;
-    color: black;
-  }
-}
 
 a {
   color: black;
@@ -81,18 +115,25 @@ a {
   border-bottom: none;
 }
 
+p {
+  padding-top: $padding;
+  line-height: 30px;
+}
+
+
+
 
 
 article {
   float: left;
   padding-top: $padding;
   padding-left: $padding;
+  padding-right: $padding;
   display: block;
   text-align: left;
 }
 
 h2 a {
-  // float: left;
   font-size: 30px;
   padding-top: $padding;
   color: $text-color;
@@ -103,34 +144,105 @@ h2 a {
 h3 {
   color: $lightblue-color;
   padding-top: 5px;
-}
 
-h3 a {
-  // float: left;
-  color: black;
-  text-decoration: none;
-  border-bottom: 1px dashed $lightblue-color;
-  // display: inline;
+  a {
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px dashed $lightblue-color;
+  }
 }
 
 
 aside {
+  padding-top: $padding;
+  padding-bottom: $padding;
+  margin-top: $padding;
+
+
   @media #{$small}{
-   display: none;
+    display: none;
   }
 
   @media #{$medium}{
     display: block;
     float: left;
+    padding-top: $padding;
+    padding-bottom: $padding;
+    margin-top: $padding;
 
     h4 {
       color: $lightblue-color;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    p {
+      padding-left: 0;
+      text-align: left;
+      max-width: 200px;
+    }
+
+    a {
+      border: 1px solid $backgroundtext-color;
+      color: $lightblue-color;
+    }
+  }
+
+  @media #{$large}{
+    display: block;
+    float: right;
+    padding-right: $padding;
+
+    h4 {
+      color: $lightblue-color;
+      text-align: left;
+      font-size: 20px;
+    }
+
+    p {
+      padding-left: 0;
+      text-align: left;
+      max-width: 200px;
+      padding-bottom: 40px;
+    }
+
+    a {
+      border: 1px solid $backgroundtext-color;
+      margin-top: $padding;
+      color: $lightblue-color;
+      text-align: left;
+      margin-right: 20px;
+      width: 300px;
     }
   }
 }
 
+
+aside + p {
+  padding-top: 80px;
+  margin-left: $padding;
+  float: left;
+}
+
+aside + h4 {
+  padding-top: 40px;
+  margin-left: $padding;
+  display: block;
+  float: left;
+  color: $lightblue-color;
+}
+
+
 .left {
   display: none;
+
+  @media #{$large}{
+    display: block;
+    float: right;
+    float: bottom;
+    padding-bottom: $padding;
+    padding-right: $padding;
+  }
 }
 
 
@@ -142,26 +254,34 @@ article p {
 
   @media #{$medium}{
     padding-top: $padding;
+    padding-bottom: $padding;
     line-height: 30px;
+    display: block;
+  }
+
+  @media #{$large}{
+    max-width: 500px;
+    padding-right: $padding;
+    border-right: 1px solid $lightblue-color;
   }
 }
 
 .footer_links {
-  padding-top: 40px;
+  padding-top: 25px;
+  padding-bottom: $padding;
   border-top: 1px solid $lightblue-color;
+
+    li{
+      padding-left: 10px;
+      padding-right: 10px;
+      display: inline;
+      color: black;
+    }
+
+    @media #{$large}{
+      li {
+        float: left;
+      }
+    }
 }
 
-.footer_links li{
-  // padding-top: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
-  display: inline;
-  color: black;
-}
-
-.read_more {
-  @media #{$medium}{
-  display: block;
-  max-width: 100%;
-  }
-}
